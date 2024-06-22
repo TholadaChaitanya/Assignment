@@ -1,4 +1,4 @@
 FROM python:3.9
 WORKDIR /app
-COPY HelloWorldPython.py .
+COPY python.py .
 CMD ["python", "python.py"]
