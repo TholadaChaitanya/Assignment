@@ -1,7 +1,6 @@
 pipeline 
 {
     agent any
-
     stages 
     {
         stage('Python Version ') {
@@ -16,7 +15,6 @@ pipeline
                 sh "docker -v"
             }
         }
-        
 	stage('Git Checkout') {
             steps {
                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/TholadaChaitanya/Assignment.git']])
@@ -24,7 +22,6 @@ pipeline
         }
         stage('Docker Build') {
             steps {
-    
                 sh "sudo docker build -t assignment ."
             }
         }
@@ -34,18 +31,10 @@ pipeline
             {
                 script
                 {
-                    
                         sh "echo Chaitu@123 | sudo docker login -u chaitanyatholada --password-stdin" 
-                        sh "sudo docker run -d -p 5000:5000 assignment"
-
-                    
+                        sh "sudo docker run -d -p 5000:5000 assignment"  
                 }
             }
-        }
-
-        
-        
-        
-        
+        }  
     }
 }    
